@@ -1,0 +1,68 @@
+/* Container for the entire order history page */
+.order-history-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  .order-history-title {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Message when no orders are available */
+  .no-orders {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+  }
+  
+  /* List of orders */
+  .order-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Individual order item */
+  .order-item {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Items inside each order */
+  .items-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  /* Styling for each item */
+  .item {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* General text styling */
+  .order-item p {
+    margin: 5px 0;
+    color: #444;
+  }
+  
+  /* Strong/bold text */
+  .order-item h2,
+  .order-item h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
