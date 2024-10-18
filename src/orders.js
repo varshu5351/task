@@ -10,6 +10,9 @@ const Orders = ({placed,setShowPopup,handleInputChange,handlePopupClose,handleOr
 
     }
     const handleClick = () =>{
+         setConform( 
+          placed
+        )
         navigate("/orders")
     }
     
@@ -34,7 +37,7 @@ const Orders = ({placed,setShowPopup,handleInputChange,handlePopupClose,handleOr
       </ul>
     )} 
    { placed.length > 0 ?  
-    <buttun className="order-button" style={{color:"white"}} onClick={handleOrder }>conform order</buttun> : "" }
+    <button className="order-button" style={{color:"white"}} onClick={handleOrder }>conform order</button> : "" }
      {showPopup && (
         <div className="popup-overlay">
           <div className="popup">

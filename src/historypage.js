@@ -13,11 +13,11 @@ debugger
   return (
     <div className="order-history-container">
       <h1 className="order-history-title">Order History</h1>
-      {filteredlist.length === 0 ? (
+      {filteredlist?.length === 0 ? (
         <p className="no-orders">No orders yet!</p>
       ) : (  
         <ul className="order-list">
-          {filteredlist.map((order) => (
+          {filteredlist?.map((order) => (
             <li key={order.id} className="order-item">
               <h2>Order {order.id}</h2>
               <p><strong>Date:</strong> {date}</p>

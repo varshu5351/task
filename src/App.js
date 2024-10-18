@@ -275,9 +275,7 @@ function App() {
     // const navigate = useNavigate();
       const handleOrderSubmit = (e) => {
         e.preventDefault();
-        setConform( 
-          placed
-        )
+       
         setShowPopup(false);
       
         // navigate("/orders")
