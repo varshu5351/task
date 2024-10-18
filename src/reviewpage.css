@@ -1,0 +1,80 @@
+/* Review Page Styles */
+.review-page-container {
+    padding: 20px;
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .review-page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .review-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .rating-section {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .submit-review-button {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .submit-review-button:hover {
+    background-color: #e5533d;
+  }
+  
+  .submitted-review {
+    margin-top: 40px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .submitted-review h2 {
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .submitted-review p {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 10px 0;
+  }
+  
