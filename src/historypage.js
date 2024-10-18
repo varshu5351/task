@@ -1,7 +1,7 @@
 import React from 'react';
 import './orderhistorypage.css'; // Importing CSS file
 
-const OrderHistoryPage = ({ placed }) => {
+const OrderHistoryPage = ({ conform }) => {
 
   
 const orderlist = window.localStorage.getItem("orderlist")
@@ -29,7 +29,7 @@ debugger
             </li>
           ))}
         </ul>
-      )}
+      )} 
     </div>
   );
 };

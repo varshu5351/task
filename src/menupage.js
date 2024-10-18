@@ -1,11 +1,10 @@
-
 import React from 'react';
 import './menupage.css'; // Importing the CSS
 // import { BsPhoneVibrate } from 'react-icons/bs';
 
-const MenuPage = ({orders,setShowPopup,setOrders,setPlaced,handleInputChange,handlePopupClose,handleOrderSubmit,showPopup,orderDetails}) => {
+const MenuPage = ({orders,setOrders,setPlaced}) => {
     const handleOrderNow = (order) => {
-        setShowPopup(true)
+        // setShowPopup(true)
         if (order.available_quantity > 0) {
             // Decrease available quantity
             setOrders((prevOrders) =>
@@ -66,50 +65,15 @@ const MenuPage = ({orders,setShowPopup,setOrders,setPlaced,handleInputChange,han
                                 onClick={() => handleOrderNow(order)}
                                 disabled={order.available_quantity === 0} 
                             >
-                                {order.available_quantity === 0 ? 'Out of Stock' : 'Order Now'}
+                                {order.available_quantity === 0 ? 'Out of Stock' : 'menu item'}
                             </button>
+
                         </div>
                     ))}
                 </div>
                 
             </section>
-            {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup">
-            <h2>Order Details</h2>
-            <form onSubmit={handleOrderSubmit}>
-              <div className="form-group">
-                <label htmlFor="tableNumber">Table Number:</label>
-                <input
-                  type="text"
-                  id="tableNumber"
-                  name="tableNumber"
-                  value={orderDetails.tableNumber}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">Customer Name:</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={orderDetails.name}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <button type="submit" className="confirm-button">
-                Confirm Order
-              </button>
-              <button type="button" className="cancel-button" onClick={handlePopupClose}>
-                Cancel
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+           
 
             <footer className="footer">
                 <p className="footer-text">© 2024 Our Restaurant. All Rights Reserved.</p>

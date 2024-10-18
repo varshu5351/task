@@ -1,19 +1,21 @@
 
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import MenuPage from './menupage';
 import OrderHistoryPage from './historypage';
 // import { CgMenuGridO } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import RestaurantReviewPage from './reviewpage';
+import Orders from "./orders";
 
 function App() {
+  const [conform,setConform]= useState([])
   const [orders, setOrders] = useState([]);
-  const [placed, setPlaced] = useState([]);
+ const [placed,setPlaced]=useState([])
   const [showPopup, setShowPopup] = useState(false);
   const [orderDetails, setOrderDetails] = useState({tableNumber: "", name: "" });
-
+  // const navigate = useNavigate();
     useEffect(() => {
         const fetchOrders = async () => {
           // Mock data - replace this with a real API call when backend is ready
@@ -270,19 +272,25 @@ function App() {
           [e.target.name]: e.target.value,
         }));
       };
-    
+    // const navigate = useNavigate();
       const handleOrderSubmit = (e) => {
         e.preventDefault();
+        setConform( 
+          placed
+        )
         setShowPopup(false);
+      
+        // navigate("/orders")
+
       };
       const handlePopupClose = () => {
         setShowPopup(false);
       };
       useEffect(()=>{ 
-        if(placed.length > 0){
-        window.localStorage.setItem("orderlist",JSON.stringify(placed))}
+        if(conform.length > 0){
+        window.localStorage.setItem("orderlist",JSON.stringify(conform))}
         
-      },[placed])
+      },[conform])
   return( 
     <>
     <BrowserRouter>
@@ -290,19 +298,21 @@ function App() {
                 <h1 className="header-title">Our Delicious Menu</h1>
                 <p className="header-subtitle">Handpicked dishes for you to enjoy!</p>
               <p><Link   style={{textDecoration:"none",color:"white",position:"absolute",top:"73px",left:"800px",display:"flex",flexDirection:"column"}} to="/" >Home</Link></p>
-                <p style={{position:"absolute",top:"58px",left:"870px",display:"flex",flexDirection:"column"}}>   
+                <p style={{position:"absolute",top:"58px",left:"850px",display:"flex",flexDirection:"column"}}>   
                 <Link   style={{textDecoration:"none",color:"white"}} to="/orders" >Orders</Link></p>
-                <p style={{position:"absolute",top:"58px",left:"930px",display:"flex",flexDirection:"column"}}>   
+                <p style={{position:"absolute",top:"58px",left:"910px",display:"flex",flexDirection:"column"}}>   
                 <Link   style={{textDecoration:"none",color:"white"}} to="/reviewspage" >Customers Review</Link></p>
+                <h2 style={{position:"absolute",top:"80px",left:"960px",display:"flex",flexDirection:"column"}}>   
+                <Link   style={{textDecoration:"none",color:"white"}} to="/ordernow" >Order Now</Link></h2>
             </header>
   
    <Routes>
    
  
-    <Route path="/" element={<MenuPage setShowPopup={setShowPopup} orders={orders} setOrders={setOrders} setPlaced={setPlaced} handleInputChange={handleInputChange} handleOrderSubmit={handleOrderSubmit}  showPopup={showPopup}  orderDetails={orderDetails} handlePopupClose={handlePopupClose}/>}/>
-    <Route path="/orders" element={<OrderHistoryPage placed={placed}/>}/>
+    <Route path="/" element={<MenuPage orders={orders} setOrders={setOrders} setPlaced={setPlaced} />}/>
+    <Route path="/orders" element={<OrderHistoryPage  conform={conform}/>}/>
     <Route path="/reviewspage" element={<RestaurantReviewPage/>}/>
- 
+    <Route path="/ordernow" element={<Orders placed={placed}  setConform={setConform}  setShowPopup={ setShowPopup} handleInputChange={handleInputChange} handleOrderSubmit={handleOrderSubmit}  showPopup={showPopup}  orderDetails={orderDetails} handlePopupClose={handlePopupClose}/>}/>
    </Routes>
 
     </BrowserRouter>
